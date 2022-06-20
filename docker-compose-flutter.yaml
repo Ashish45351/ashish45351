@@ -20,6 +20,7 @@ services:
 
   taxi-rider-api:
     image: ridyio/ridy-rider-api
+    platform: linux/amd64
     restart: always
     volumes:
       - ./img:/app/uploads
@@ -35,6 +36,7 @@ services:
 
   taxi-driver-api:
     image: ridyio/ridy-driver-api
+    platform: linux/amd64
     restart: always
     volumes:
       - ./img:/app/uploads
@@ -50,6 +52,7 @@ services:
 
   taxi-admin-api:
     image: ridyio/ridy-admin-api
+    platform: linux/amd64
     restart: always
     links:
       - mysql
@@ -64,6 +67,7 @@ services:
 
   taxi-admin-panel:
     image: ridyio/ridy-admin-panel
+    platform: linux/amd64
     restart: always
     volumes:
        - taxiassets:/usr/share/nginx/html/assets
@@ -72,6 +76,7 @@ services:
 
   payment-gateways:
     image: ridyio/delivery-gateway-box
+    platform: linux/amd64
     depends_on:
       - "taxi-rider-api"
     ports:
